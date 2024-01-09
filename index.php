@@ -52,5 +52,17 @@
 </head>
 <body>
     <h1>PHP Hotel</h1>
+
+    <?php
+
+        foreach ($hotels as $hotel) {
+            
+            foreach ($hotel as $key => $value) {
+                echo $key . ": " . $value . "<br>";
+            }
+            echo "<br>";
+        }
+
+    ?>
 </body>
 </html>
