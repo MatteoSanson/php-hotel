@@ -54,26 +54,41 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    <h1>PHP Hotel</h1>
+    <div class="container mt-5">
+        <h1 class="mb-5 text-center">PHP Hotel</h1>
 
-    <?php
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <?php
 
-        foreach ($hotels as $hotel) {
+                        foreach ($hotels[0] as $key => $value) {
+                            echo "<th scope='col' class='text-center bg-primary text-white'>" . ucfirst(str_replace("_", " ", $key)) . "</th>";
+                        }
+                    ?>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <?php 
+                foreach ($hotels as $index => $hotel) {
+                    echo "<tr>";
+
+                    foreach ($hotel as $key => $value) {
+                        if ($key === "parking") {
+                            $value = $value ? "SI" : "NO";
+                        }
+
+                        echo "<td class='text-center'>" . $value . "</td>";
+                    }
+
+                    echo "</tr>";
+                }
+                ?>
             
-            foreach ($hotel as $key => $value) {
-                if ($key === "parking") {
-                    $value = $value ? "SI" : "NO";
-                }
-
-                if ($key === "distance_to_center") {
-                    $key = str_replace("_", " ", $key);
-                }
-
-                echo "<strong>" . ucfirst($key) . ":</strong> " . $value . "<br>";
-            }
-            echo "<br>";
-        }
-
-    ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
