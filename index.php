@@ -57,6 +57,14 @@
     <div class="container mt-5">
         <h1 class="mb-5 text-center">PHP Hotel</h1>
 
+        <form action="" class="mb-4">
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="parkingFilter" id="parkingFilter">
+                <label class="form-check-label" for="parkingFilter">Mostra solo hotel con parcheggio</label>
+                </div>
+            <button type="submit" class="btn btn-primary">Applica filtro</button>
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
