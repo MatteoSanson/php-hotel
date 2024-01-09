@@ -58,6 +58,10 @@
         foreach ($hotels as $hotel) {
             
             foreach ($hotel as $key => $value) {
+                if ($key === "parking") {
+                    $value = $value ? "SI" : "NO";
+                }
+
                 echo $key . ": " . $value . "<br>";
             }
             echo "<br>";
