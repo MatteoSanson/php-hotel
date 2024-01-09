@@ -57,19 +57,20 @@
     <div class="container mt-5">
         <h1 class="mb-5 text-center">PHP Hotel</h1>
 
+        <!-- form con checkbox parcheggio  -->
         <form action="" class="mb-4">
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="parkingFilter" id="parkingFilter">
-                <label class="form-check-label" for="parkingFilter">Mostra solo hotel con parcheggio</label>
+                <input type="checkbox" class="form-check-input" name="parking_filter" id="parking_filter">
+                <label class="form-check-label" for="parking_filter">Mostra solo gli hotel con parcheggio</label>
                 </div>
             <button type="submit" class="btn btn-primary">Applica filtro</button>
         </form>
+        <!-- /form con checkbox parcheggio  -->
 
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <?php
-
                         foreach ($hotels[0] as $key => $value) {
                             echo "<th scope='col' class='text-center bg-primary text-white'>" . ucfirst(str_replace("_", " ", $key)) . "</th>";
                         }
@@ -81,17 +82,19 @@
 
                 <?php 
                 foreach ($hotels as $index => $hotel) {
-                    echo "<tr>";
 
-                    foreach ($hotel as $key => $value) {
-                        if ($key === "parking") {
-                            $value = $value ? "SI" : "NO";
+                    if (isset($_GET['parking_filter']) && !$hotel['parking']) {
+                    } else {
+                        echo "<tr>";
+                        foreach ($hotel as $key => $value) {
+                            if ($key === "parking") {
+                                $value = $value ? "SI" : "NO";
+                            }
+                
+                            echo "<td class='text-center'>" . $value . "</td>";
                         }
-
-                        echo "<td class='text-center'>" . $value . "</td>";
+                        echo "</tr>";
                     }
-
-                    echo "</tr>";
                 }
                 ?>
             
