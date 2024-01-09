@@ -62,7 +62,11 @@
                     $value = $value ? "SI" : "NO";
                 }
 
-                echo $key . ": " . $value . "<br>";
+                if ($key === "distance_to_center") {
+                    $key = str_replace("_", " ", $key);
+                }
+
+                echo "<strong>" . ucfirst($key) . ":</strong> " . $value . "<br>";
             }
             echo "<br>";
         }
