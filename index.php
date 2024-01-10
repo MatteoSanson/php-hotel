@@ -58,7 +58,7 @@
         <h1 class="mb-5 text-center">PHP Hotel</h1>
 
         <!-- form con checkbox parcheggio  -->
-        <form action="" class="mb-4">
+        <form action="" class="mb-4" method="GET">
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" name="parking_filter" id="parking_filter">
                 <label class="form-check-label" for="parking_filter">Mostra solo gli hotel con parcheggio</label>
